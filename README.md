@@ -56,7 +56,7 @@ Tous les conteneurs doivent être en état `Up`.
 | Service | URL | Identifiants |
 |---------|-----|--------------|
 | Landing Page | `http://vps114744.serveur-vps.net:8080` | - |
-| Grafana | `http://vps114744.serveur-vps.net:81` | admin / admin |
+| Grafana | `http://vps114744.serveur-vps.net:81` | admin / admin1 |
 | Minecraft | `vps114744.serveur-vps.net:12000` | - |
 
 ## 📊 Dashboards Grafana
