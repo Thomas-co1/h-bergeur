@@ -1,0 +1,45 @@
+# Docker
+*.log
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Minecraft
+minecraft/plugins/*.jar.old
+minecraft/logs/
+minecraft/crash-reports/
+minecraft/world/
+minecraft/world_nether/
+minecraft/world_the_end/
+
+# Grafana
+grafana/data/
+
+# Prometheus  
+prometheus/data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Env
+.env
+.env.local
+
+# MD
+GUIDE_RAPIDE.md
+GUIDE_FINAL.md
+CHECKLIST.md
+CORRECTIONS.md
+RESUME_CORRECTIONS.md

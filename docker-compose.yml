@@ -1,0 +1,91 @@
+version: "3.9"
+
+services:
+
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: minecraft
+    restart: unless-stopped
+    ports:
+      - "12000:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      MEMORY: "2G"
+    volumes:
+      - minecraft_data:/data
+      - ./minecraft/plugins:/data/plugins
+    networks:
+      - minecraft-net
+      - monitoring-net
+
+  landing:
+    build: ./landing
+    container_name: landing
+    restart: unless-stopped
+    ports:
+      - "80:3000"
+    networks:
+      - minecraft-net
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    networks:
+      - monitoring-net
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "81:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring-net
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    restart: unless-stopped
+    networks:
+      - monitoring-net
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor
+    container_name: cadvisor
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+    networks:
+      - monitoring-net
+
+volumes:
+  minecraft_data:
+  grafana_data:
+  prometheus_data:
+
+networks:
+  minecraft-net:
+    driver: bridge
+
+  monitoring-net:
+    driver: bridge

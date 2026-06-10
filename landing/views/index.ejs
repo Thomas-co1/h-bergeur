@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= serverName %></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .hero {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-top: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    h1 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+    }
+    .server-ip {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      margin: 2rem 0;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .server-ip:hover {
+      background: rgba(0, 0, 0, 0.5);
+      transform: scale(1.02);
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border: none;
+    }
+    .card h3 {
+      color: #667eea;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .rule-item {
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      transition: all 0.3s;
+    }
+    .rule-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .icon {
+      color: #667eea;
+      margin-right: 0.5rem;
+    }
+    .description {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    .copy-btn {
+      background: #667eea;
+      border: none;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+    .copy-btn:hover {
+      background: #764ba2;
+      transform: scale(1.05);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero text-center">
+      <h1><i class="fas fa-cube icon"></i><%= serverName %></h1>
+      <p class="description"><%= description %></p>
+      
+      <div class="server-ip" onclick="copyIP()">
+        <i class="fas fa-server icon"></i><%= ip %>
+        <br>
+        <button class="copy-btn" id="copyBtn">
+          <i class="fas fa-copy"></i> Copier l'IP
+        </button>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+        <h5>Mode Paper</h5>
+        <p>Serveur optimisé pour les meilleures performances</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h5>Monitoring 24/7</h5>
+        <p>Stack Prometheus + Grafana pour surveiller le serveur</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h5>Sécurisé</h5>
+        <p>Infrastructure protégée avec Docker</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-book icon"></i>Règles du serveur</h3>
+      <div class="rule-item">
+        <i class="fas fa-hand-paper icon"></i>
+        <strong>Pas de grief :</strong> Ne détruisez pas les constructions des autres joueurs
+      </div>
+      <div class="rule-item">
+        <i class="fas fa-heart icon"></i>
+        <strong>Respect :</strong> Soyez courtois et respectueux envers tous les joueurs
+      </div>
+      <div class="rule-item">
+        <i class="fas fa-ban icon"></i>
+        <strong>Pas de cheat :</strong> Les mods et hacks sont strictement interdits
+      </div>
+      <div class="rule-item">
+        <i class="fas fa-users icon"></i>
+        <strong>Jouez fair-play :</strong> Le jeu en équipe et l'entraide sont encouragés
+      </div>
+      <div class="rule-item">
+        <i class="fas fa-comments icon"></i>
+        <strong>Pas de spam :</strong> Évitez le spam dans le chat
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-info-circle icon"></i>Informations</h3>
+      <p><strong>Version :</strong> Java Edition (Paper)</p>
+      <p><strong>Limite RAM :</strong> 2 GB</p>
+      <p><strong>Type :</strong> Survie semi-vanilla</p>
+      <p><strong>Plugins :</strong> Anti-grief, Monitoring</p>
+    </div>
+  </div>
+
+  <script>
+    function copyIP() {
+      const ip = '<%= ip %>';
+      navigator.clipboard.writeText(ip).then(() => {
+        const btn = document.getElementById('copyBtn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Copié !';
+        btn.style.background = '#28a745';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '#667eea';
+        }, 2000);
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
