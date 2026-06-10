@@ -75,7 +75,7 @@ print_info "IP publique détectée : $PUBLIC_IP"
 
 # Mettre à jour l'IP dans la landing page
 print_info "Mise à jour de l'IP dans la landing page..."
-sed -i "s/YOUR_VPS_IP:12000/${PUBLIC_IP}:12000/g" landing/server.js
+sed -i -E "s/(YOUR_VPS_IP|31\.207\.38\.10):12000/${PUBLIC_IP}:12000/g" landing/server.js
 print_info "IP mise à jour ✓"
 
 # Arrêter les conteneurs existants si présents

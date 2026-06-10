@@ -37,21 +37,13 @@ cd ../..
 
 > ⚠️ **Important** : Vérifiez la dernière version sur https://github.com/sladkoff/minecraft-prometheus-exporter/releases
 
-### 3. Modifier l'IP dans la landing page
-
-Éditez `landing/server.js` et remplacez `YOUR_VPS_IP` par l'IP publique de votre VPS :
-
-```javascript
-ip: "VOTRE_IP:25566",
-```
-
-### 4. Lancer la stack
+### 3. Lancer la stack
 
 ```bash
 docker compose up -d --build
 ```
 
-### 5. Vérifier que tout fonctionne
+### 4. Vérifier que tout fonctionne
 
 ```bash
 docker compose ps
@@ -63,9 +55,9 @@ Tous les conteneurs doivent être en état `Up`.
 
 | Service | URL | Identifiants |
 |---------|-----|--------------|
-| Landing Page | `http://VOTRE_IP` | - |
-| Grafana | `http://VOTRE_IP:81` | admin / admin |
-| Minecraft | `VOTRE_IP:12000` | - |
+| Landing Page | `http://vps114744.serveur-vps.net` | - |
+| Grafana | `http://vps114744.serveur-vps.net:81` | admin / admin |
+| Minecraft | `vps114744.serveur-vps.net:12000` | - |
 
 ## 📊 Dashboards Grafana
 

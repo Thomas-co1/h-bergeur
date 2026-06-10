@@ -87,7 +87,7 @@ try {
     Write-Host "📋 PROCHAINES ÉTAPES :" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "1️⃣  Connectez-vous à votre VPS :" -ForegroundColor White
-    Write-Host "   ssh root@VOTRE_IP_VPS" -ForegroundColor Gray
+    Write-Host "   ssh root@vps114744.serveur-vps.net" -ForegroundColor Gray
     Write-Host ""
     Write-Host "2️⃣  Clonez le projet :" -ForegroundColor White
     Write-Host "   git clone $repoUrl" -ForegroundColor Gray
@@ -98,9 +98,9 @@ try {
     Write-Host "   ./deploy.sh" -ForegroundColor Gray
     Write-Host ""
     Write-Host "Puis accédez à :" -ForegroundColor Yellow
-    Write-Host "   Landing: http://VOTRE_IP" -ForegroundColor Gray
-    Write-Host "   Grafana: http://VOTRE_IP:81" -ForegroundColor Gray
-    Write-Host "   Minecraft: VOTRE_IP:12000" -ForegroundColor Gray
+    Write-Host "   Landing: http://vps114744.serveur-vps.net" -ForegroundColor Gray
+    Write-Host "   Grafana: http://vps114744.serveur-vps.net:81" -ForegroundColor Gray
+    Write-Host "   Minecraft: vps114744.serveur-vps.net:12000" -ForegroundColor Gray
     Write-Host ""
     Write-Host "Ou suivez le guide GUIDE_RAPIDE.md" -ForegroundColor Yellow
     Write-Host ""
