@@ -7,7 +7,7 @@ services:
     container_name: minecraft
     restart: unless-stopped
     ports:
-      - "12000:25565"
+      - "8083:25565"
     environment:
       EULA: "TRUE"
       TYPE: "PAPER"

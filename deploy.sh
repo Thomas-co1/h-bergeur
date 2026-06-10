@@ -75,7 +75,7 @@ print_info "IP publique détectée : $PUBLIC_IP"
 
 # Mettre à jour l'IP dans la landing page
 print_info "Mise à jour de l'IP dans la landing page..."
-sed -i -E "s/(YOUR_VPS_IP|31\.207\.38\.10):12000/${PUBLIC_IP}:12000/g" landing/server.js
+sed -i -E "s/(YOUR_VPS_IP|31\.207\.38\.10):8083/${PUBLIC_IP}:8083/g" landing/server.js
 print_info "IP mise à jour ✓"
 
 # Arrêter les conteneurs existants si présents
@@ -118,7 +118,7 @@ echo "🌐 Accès aux services :"
 echo ""
 echo "   Landing Page:     http://${PUBLIC_IP}:8080"
 echo "   Grafana:          http://${PUBLIC_IP}:81"
-echo "   Minecraft Server: ${PUBLIC_IP}:12000"
+echo "   Minecraft Server: ${PUBLIC_IP}:8083"
 echo ""
 echo "🔐 Identifiants Grafana :"
 echo "   Utilisateur: admin"
