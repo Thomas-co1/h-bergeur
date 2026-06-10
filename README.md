@@ -5,7 +5,7 @@ Stack Docker complète incluant un serveur Minecraft Paper, une landing page Nod
 ## 📦 Contenu de la stack
 
 - **Minecraft Server** (Paper) - Port 12000
-- **Landing Page** (Node.js + Express + EJS) - Port 80
+- **Landing Page** (Node.js + Express + EJS) - Port 8080
 - **Grafana** - Port 81
 - **Prometheus** - Réseau interne
 - **node-exporter** - Métriques système
@@ -55,7 +55,7 @@ Tous les conteneurs doivent être en état `Up`.
 
 | Service | URL | Identifiants |
 |---------|-----|--------------|
-| Landing Page | `http://vps114744.serveur-vps.net` | - |
+| Landing Page | `http://vps114744.serveur-vps.net:8080` | - |
 | Grafana | `http://vps114744.serveur-vps.net:81` | admin / admin |
 | Minecraft | `vps114744.serveur-vps.net:12000` | - |
 
@@ -81,7 +81,7 @@ Deux dashboards sont automatiquement provisionnés :
 
 ### Ports exposés
 
-- **80** : Landing page
+- **8080** : Landing page
 - **81** : Grafana
 - **12000** : Minecraft (différent du port par défaut 25565)
 

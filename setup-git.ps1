@@ -98,7 +98,7 @@ try {
     Write-Host "   ./deploy.sh" -ForegroundColor Gray
     Write-Host ""
     Write-Host "Puis accédez à :" -ForegroundColor Yellow
-    Write-Host "   Landing: http://vps114744.serveur-vps.net" -ForegroundColor Gray
+    Write-Host "   Landing: http://vps114744.serveur-vps.net:8080" -ForegroundColor Gray
     Write-Host "   Grafana: http://vps114744.serveur-vps.net:81" -ForegroundColor Gray
     Write-Host "   Minecraft: vps114744.serveur-vps.net:12000" -ForegroundColor Gray
     Write-Host ""
